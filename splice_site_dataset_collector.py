@@ -243,7 +243,7 @@ class SpliceSitePreprocessor:
         neg_donor = self.generate_negative_samples(
             sequence, splice_sites['donor'], 'donor'
         )
-        for pos in neg_donor[:len(splice_sites['donor']) * 2]:  # 2:1 ratio
+        for pos in neg_donor[:len(splice_sites['donor']) * 10]:  # 5:1 ratio
             seq = self.extract_flanking_sequence(sequence, pos, 'donor')
             data.append({
                 'sequence': seq,
@@ -266,7 +266,7 @@ class SpliceSitePreprocessor:
         neg_acceptor = self.generate_negative_samples(
             sequence, splice_sites['acceptor'], 'acceptor'
         )
-        for pos in neg_acceptor[:len(splice_sites['acceptor']) * 2]:
+        for pos in neg_acceptor[:len(splice_sites['acceptor']) * 10]: #10:1 ratio
             seq = self.extract_flanking_sequence(sequence, pos, 'acceptor')
             data.append({
                 'sequence': seq,
